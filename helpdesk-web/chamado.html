@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chamado · HelpDesk</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="topo">
+    <a href="dashboard.html">&larr; Voltar</a>
+    <strong>HelpDesk</strong>
+  </div>
+
+  <div class="container">
+    <p id="mensagem-erro" class="erro-msg oculto"></p>
+    <div id="detalhe-chamado"></div>
+
+    <div id="painel-status" class="card oculto">
+      <h3>Atualizar status</h3>
+      <form id="form-status">
+        <select id="select-status">
+          <option value="Aberto">Aberto</option>
+          <option value="Em Atendimento">Em Atendimento</option>
+          <option value="Concluido">Concluido</option>
+        </select>
+        <button type="submit" class="btn">Atualizar</button>
+      </form>
+    </div>
+
+    <h2 style="margin-top:2rem;">Comentarios</h2>
+    <div id="lista-comentarios"></div>
+
+    <form id="form-comentario" class="card">
+      <label for="mensagem">Novo comentario</label>
+      <textarea id="mensagem" required></textarea>
+      <button type="submit" class="btn">Comentar</button>
+    </form>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/chamado.js"></script>
+</body>
+</html>

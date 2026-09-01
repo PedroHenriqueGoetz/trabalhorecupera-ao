@@ -1,0 +1,18 @@
+### RELATORIO DE ENTREGA - RECUPERACAO TRIMESTRAL
+Nome do Estudante: [Seu Nome Completo]
+Turma: [Sua Turma]
+
+==================================================
+1. APLICACAO 1: GESTAO DE EVENTOS (ARQUITETURA MVC)
+==================================================
+* Link da Aplicacao em Producao (Render): https://seu-eventhub.onrender.com
+* Link do Repositorio GitHub (MVC): https://github.com/usuario/eventhub-mvc
+
+==================================================
+2. APLICACAO 2: HELPDESK (ARQUITETURA REST)
+==================================================
+* Link da API Backend (Render): https://seu-helpdesk-api.onrender.com
+* Link da Documentacao Swagger: https://seu-helpdesk-api.onrender.com/api-docs
+* Link do Frontend Consumidor (Vercel): https://seu-helpdesk-web.vercel.app
+* Link do Repositorio GitHub (API Backend): https://github.com/usuario/helpdesk-api
+* Link do Repositorio GitHub (Frontend): https://github.com/usuario/helpdesk-web

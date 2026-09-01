@@ -1,0 +1,18 @@
+<%- include('../partials/header', { titulo }) %>
+
+<h1>Eventos</h1>
+
+<% if (eventos.length === 0) { %>
+  <p class="vazio">Nenhum evento cadastrado ainda.</p>
+<% } %>
+
+<% eventos.forEach(evento => { %>
+  <div class="card">
+    <h2><a href="/eventos/<%= evento.id %>" style="color:inherit;text-decoration:none;"><%= evento.titulo %></a></h2>
+    <p class="card-meta">📅 <%= new Date(evento.data_evento).toLocaleString('pt-BR') %> · 📍 <%= evento.local || 'Local a definir' %></p>
+    <p class="card-meta">Organizado por <%= evento.organizador_nome %></p>
+    <span class="badge"><%= evento.inscritos %><%= evento.vagas_totais > 0 ? ' / ' + evento.vagas_totais : '' %> inscritos</span>
+  </div>
+<% }) %>
+
+<%- include('../partials/footer') %>

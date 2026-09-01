@@ -1,0 +1,31 @@
+<%- include('../partials/header', { titulo }) %>
+
+<h1><%= evento.titulo %></h1>
+<p class="card-meta">📅 <%= new Date(evento.data_evento).toLocaleString('pt-BR') %> · 📍 <%= evento.local || 'Local a definir' %></p>
+<p class="card-meta">Organizado por <%= evento.organizador_nome %></p>
+<span class="badge"><%= evento.inscritos %><%= evento.vagas_totais > 0 ? ' / ' + evento.vagas_totais : '' %> inscritos</span>
+
+<p style="margin-top:1.5rem;"><%= evento.descricao || 'Sem descricao.' %></p>
+
+<div class="acoes">
+  <% if (usuario && usuario.papel === 'participante') { %>
+    <% if (jaInscrito) { %>
+      <form action="/inscricoes/<%= evento.id %>?_method=DELETE" method="POST">
+        <button type="submit" class="btn btn-danger">Cancelar inscricao</button>
+      </form>
+    <% } else { %>
+      <form action="/inscricoes/<%= evento.id %>" method="POST">
+        <button type="submit" class="btn">Inscrever-se</button>
+      </form>
+    <% } %>
+  <% } %>
+
+  <% if (usuario && usuario.papel === 'organizador' && usuario.id === evento.organizador_id) { %>
+    <a href="/eventos/<%= evento.id %>/editar" class="btn btn-secondary">Editar</a>
+    <form action="/eventos/<%= evento.id %>?_method=DELETE" method="POST" onsubmit="return confirm('Excluir este evento?');">
+      <button type="submit" class="btn btn-danger">Excluir</button>
+    </form>
+  <% } %>
+</div>
+
+<%- include('../partials/footer') %>

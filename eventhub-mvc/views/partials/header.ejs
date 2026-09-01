@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= titulo %> · EventHub</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <nav class="navbar">
+    <a href="/eventos" class="brand">EventHub</a>
+    <div class="nav-links">
+      <a href="/eventos">Eventos</a>
+      <% if (usuario) { %>
+        <% if (usuario.papel === 'organizador') { %>
+          <a href="/eventos/novo">Novo evento</a>
+        <% } else { %>
+          <a href="/inscricoes/minhas">Minhas inscricoes</a>
+        <% } %>
+        <span class="user-tag"><%= usuario.nome %> (<%= usuario.papel %>)</span>
+        <form action="/logout" method="POST" class="inline-form">
+          <button type="submit" class="link-btn">Sair</button>
+        </form>
+      <% } else { %>
+        <a href="/login">Entrar</a>
+        <a href="/cadastro">Criar conta</a>
+      <% } %>
+    </div>
+  </nav>
+  <main class="container">

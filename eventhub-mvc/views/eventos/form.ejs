@@ -1,0 +1,26 @@
+<%- include('../partials/header', { titulo }) %>
+
+<h1><%= titulo %></h1>
+<% if (erro) { %><div class="erro-msg"><%= erro %></div><% } %>
+
+<form action="<%= acao %>" method="POST" class="form-box">
+  <label for="titulo">Titulo</label>
+  <input type="text" id="titulo" name="titulo" value="<%= evento ? evento.titulo : '' %>" required>
+
+  <label for="descricao">Descricao</label>
+  <textarea id="descricao" name="descricao"><%= evento ? (evento.descricao || '') : '' %></textarea>
+
+  <label for="local">Local</label>
+  <input type="text" id="local" name="local" value="<%= evento ? (evento.local || '') : '' %>">
+
+  <label for="dataEvento">Data e hora</label>
+  <input type="datetime-local" id="dataEvento" name="dataEvento"
+    value="<%= evento && evento.data_evento ? new Date(evento.data_evento).toISOString().slice(0,16) : '' %>" required>
+
+  <label for="vagasTotais">Vagas (0 = ilimitado)</label>
+  <input type="number" id="vagasTotais" name="vagasTotais" min="0" value="<%= evento ? evento.vagas_totais : 0 %>">
+
+  <button type="submit" class="btn">Salvar</button>
+</form>
+
+<%- include('../partials/footer') %>

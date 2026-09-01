@@ -1,0 +1,16 @@
+<%- include('partials/header', { titulo }) %>
+
+<h1>Minhas inscricoes</h1>
+
+<% if (inscricoes.length === 0) { %>
+  <p class="vazio">Voce ainda nao se inscreveu em nenhum evento.</p>
+<% } %>
+
+<% inscricoes.forEach(i => { %>
+  <div class="card">
+    <h2><a href="/eventos/<%= i.evento_id %>" style="color:inherit;text-decoration:none;"><%= i.titulo %></a></h2>
+    <p class="card-meta">📅 <%= new Date(i.data_evento).toLocaleString('pt-BR') %> · 📍 <%= i.local || 'Local a definir' %></p>
+  </div>
+<% }) %>
+
+<%- include('partials/footer') %>

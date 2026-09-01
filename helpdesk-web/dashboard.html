@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chamados · HelpDesk</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="topo">
+    <a href="dashboard.html"><strong>HelpDesk</strong></a>
+    <div class="topo-acoes">
+      <span id="saudacao"></span>
+      <button id="btn-sair" class="btn btn-secundario" style="margin:0;">Sair</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <p id="mensagem-erro" class="erro-msg oculto"></p>
+    <div class="duas-colunas">
+      <div>
+        <h2>Chamados</h2>
+        <div id="lista-chamados"></div>
+      </div>
+      <div>
+        <h2>Abrir chamado</h2>
+        <form id="form-novo-chamado" class="card">
+          <label for="titulo">Titulo</label>
+          <input type="text" id="titulo" required>
+          <label for="descricao">Descricao</label>
+          <textarea id="descricao"></textarea>
+          <label for="prioridade">Prioridade</label>
+          <select id="prioridade">
+            <option value="Baixa">Baixa</option>
+            <option value="Media" selected>Media</option>
+            <option value="Alta">Alta</option>
+          </select>
+          <button type="submit" class="btn" style="width:100%;">Abrir chamado</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
