@@ -1,0 +1,58 @@
+services:
+  - type: web
+    name: pedro-goetz-eventhub-mvc
+    runtime: node
+    plan: free
+    rootDir: eventhub-mvc
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        value: eventhub
+      - key: DB_SSL
+        value: "true"
+      - key: SESSION_SECRET
+        generateValue: true
+
+  - type: web
+    name: pedro-goetz-helpdesk-api
+    runtime: node
+    plan: free
+    rootDir: helpdesk-api
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "3306"
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        value: helpdesk
+      - key: DB_SSL
+        value: "true"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 8h
+      - key: FRONTEND_URL
+        sync: false

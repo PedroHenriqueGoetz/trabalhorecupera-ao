@@ -45,6 +45,9 @@ app.use('/', authRoutes);
 app.use('/eventos', eventoRoutes);
 app.use('/inscricoes', inscricaoRoutes);
 
+// Endpoint leve para monitoramento do serviço em produção.
+app.get('/health', (req, res) => res.status(200).json({ status: 'ok' }));
+
 app.get('/', (req, res) => res.redirect('/eventos'));
 
 // 404
