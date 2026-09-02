@@ -1,5 +1,5 @@
-// URL base da HelpDesk API. Troque pela URL publica do Render antes do deploy.
-const API_BASE_URL = 'http://localhost:4000';
+// URL pública da HelpDesk API no Render.
+const API_BASE_URL = 'https://pedro-goetz-helpdesk-api.onrender.com';
 
 /**
  * Wrapper de fetch que injeta o token JWT salvo e trata erros de forma padronizada.
